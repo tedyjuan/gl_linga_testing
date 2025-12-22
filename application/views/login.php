@@ -26,9 +26,9 @@
 						<form class="js-validate needs-validation" action="<?= base_url('Auth/authProcess') ?>" method="POST" autocomplete="off">
 							<div class="text-center">
 								<div class="mb-5">
-									<a class="d-flex justify-content-center mb-5" href="<?= base_url('auth') ?>">
+									<!-- <a class="d-flex justify-content-center mb-5" href="<?= base_url('auth') ?>">
 										<img class="zi-2" src="<?= base_url('public/assets/img/logo/logo.svg'); ?>" alt="Image Description" style="width: 15rem;">
-									</a>
+									</a> -->
 									<p>Please login with your account</p>
 								</div>
 							</div>

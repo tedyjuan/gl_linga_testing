@@ -147,8 +147,8 @@
 			<div class="navbar-vertical-footer-offset">
 				<!-- Logo tes-->
 				<a class="navbar-brand" href="<?= base_url(); ?>" aria-label="Front">
-					<img class="navbar-brand-logo" src="<?= base_url('public/assets/img/logo/logo.svg'); ?>" alt="Logo" data-hs-theme-appearance="default" style="height: 60px; max-height: none; width: 100%; max-width: none;">
-					<img class="navbar-brand-logo-mini" src="<?= base_url('public/assets/img/logo/icon-star.svg'); ?>" alt="Logo">
+					<!-- <img class="navbar-brand-logo" src="<?= base_url('public/assets/img/logo/logo.svg'); ?>" alt="Logo" data-hs-theme-appearance="default" style="height: 60px; max-height: none; width: 100%; max-width: none;">
+					<img class="navbar-brand-logo-mini" src="<?= base_url('public/assets/img/logo/icon-star.svg'); ?>" alt="Logo"> -->
 				</a>
 				<button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-aside-toggler">
 					<i class="bi-arrow-bar-left navbar-toggler-short-align" data-bs-toggle="tooltip" data-bs-placement="right" title="Collapse"></i>
