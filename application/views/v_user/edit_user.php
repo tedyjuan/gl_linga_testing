@@ -1,0 +1,117 @@
+<!-- Card -->
+<div class="card">
+	<div class="card-header">
+		<div class="row align-items-center mb-2">
+			<div class="col-md-12 d-flex justify-content-between">
+				<h2 class="mb-0"><?= $judul ?></h2>
+				<div class="div ">
+					<button class="btn btn-sm btn-primary" onclick="loadform('<?= $load_grid ?>')"><i
+							class="bi bi-arrow-left-circle"></i> Back</button>
+					<a href="javascript:void(0)" class="btn btn-sm btn-outline-primary"
+						onclick="loadform('<?= $load_refresh ?>')">
+						<i class="bi bi-arrow-clockwise"></i> Refresh
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="card-body">
+		<form id="forms_add">
+			<div class="row">
+				<div class="col-6">
+					<div class="mb-3">
+						<label class="form-label" for="company">Company</label>
+						<input type="text" id="company" value="<?= $company; ?>" class="form-control" disabled>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="mb-3">
+						<label class="form-label" for="role_access">Role Access</label>
+						<select id="role_access" name="role_access" class="form-control-hover-light form-control select2"
+							data-parsley-required="true" data-parsley-errors-container=".err_role" required="">
+							<option value="">Select</option>
+							<?php foreach ($user as $rows) : ?>
+								<?php if ($rows->id != 1) : ?>
+									<option value="<?= $rows->id; ?>" <?= $myadata->role_id == $rows->id ? 'selected' :''; ?>><?= $rows->name; ?></option>
+								<?php endif; ?>
+							<?php endforeach; ?>
+						</select>
+						<span class="text-danger err_role"></span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6">
+					<div class="mb-3">
+						<label class="form-label" for="name_user">Full Name</label>
+						<input type="text" id="name_user" name="name_user" data-parsley-required="true"
+							data-parsley-errors-container=".err_nm_user" required="" value="<?= $myadata->name; ?>"
+							class="form-control-hover-light form-control kapital" placeholder="input full name">
+						<span class="text-danger err_nm_user"></span>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="mb-3">
+						<label class="form-label" for="username">User Name</label>
+						<input type="text" id="username" name="username" data-parsley-required="true"
+							data-parsley-errors-container=".err_username" required="" value="<?= $myadata->username; ?>"
+							class="form-control-hover-light form-control username"
+							placeholder="input user name">
+						<span class="text-danger err_username"></span>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 d-flex justify-content-end">
+				<div></div>
+				<div>
+					<button type="button" id="btnsubmit" class="btn btn-sm btn-primary"><i class="bi bi-send"></i>
+						Update </button>
+					<button type="reset" class="btn btn-sm btn-outline-danger"><i class="bi bi-eraser-fill"></i>
+						Reset</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<script>
+	$('#btnsubmit').click(function(e) {
+		e.preventDefault();
+		let form = $('#forms_add');
+		var uuid = "<?= ($uuid) ?>";
+		form.parsley().validate();
+		if (form.parsley().isValid()) {
+			$.ajax({
+				url: "<?= base_url('C_user/update') ?>",
+				type: 'POST',
+				method: 'POST',
+				dataType: 'JSON',
+				data: form.serialize() + '&uuid=' + uuid,
+				beforeSend: function() {
+					showLoader();
+				},
+				success: function(data) {
+					if (data.hasil == 'true') {
+						swet_sukses(data.pesan);
+						loadform('<?= $load_grid ?>');
+					} else {
+						swet_gagal(data.pesan);
+						hideLoader();
+					}
+				},
+			});
+		}
+	});
+
+	$(document).ready(function() {
+		$('.kapital').on('input', function(e) {
+			this.value = this.value.replace(/[^a-zA-Z0-9 /-]/g, '').toUpperCase();
+		});
+		$('.username').on('input', function(e) {
+			this.value = this.value.replace(/[^A-Z0-9]/gi, '').toUpperCase();
+		});
+		$(".select2").select2({
+			placeholder: 'select role',
+		});
+
+	})
+</script>

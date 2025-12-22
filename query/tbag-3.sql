@@ -1,0 +1,92 @@
+INSERT INTO
+	`u1721210_general_ledger`.`trial_balance_account_group_3` (
+		`code_company`,
+		`code_trialbalance3`,
+		`description`,
+		`code_trialbalance1`,
+		`code_trialbalance2`,
+		`uuid`,
+		`created_at`,
+		`updated_at`
+	)
+VALUES
+	(
+		'BMP',
+		'NP',
+		'NILAI PEROLEHAN',
+		'AK',
+		'AKT',
+		UUID(),
+		NOW(),
+		NOW()
+	),
+	(
+		'BMP',
+		'AS',
+		'AKTIVA SGU',
+		'AK',
+		'AKN',
+		UUID(),
+		NOW(),
+		NOW()
+	),
+	(
+		'BMP',
+		'HGB',
+		'HGB',
+		'AK',
+		'AKN',
+		UUID(),
+		NOW(),
+		NOW()
+	),
+	(
+		'BMP',
+		'S',
+		'SOFTWARE',
+		'AK',
+		'AKN',
+		UUID(),
+		NOW(),
+		NOW()
+	),
+	(
+		'BMP',
+		'AP',
+		'AKUMULASI PENYUSUTAN',
+		'AK',
+		'AKT',
+		UUID(),
+		NOW(),
+		NOW()
+	),
+	(
+		'BMP',
+		'AAHGB',
+		'AKUMULASI AMORTISASI HGB',
+		'AK',
+		'AKN',
+		UUID(),
+		NOW(),
+		NOW()
+	),
+	(
+		'BMP',
+		'AAS',
+		'AKUMULASI AMORTISASI SOFTWARE',
+		'AK',
+		'AKT',
+		UUID(),
+		NOW(),
+		NOW()
+	),
+	(
+		'BMP',
+		'AP',
+		'AKUMULASI PENYUSUTAN',
+		'AK',
+		'AKN',
+		UUID(),
+		NOW(),
+		NOW()
+	);
