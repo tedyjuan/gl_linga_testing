@@ -9,14 +9,14 @@ if ($_SERVER['HTTP_HOST'] === 'localhost' || $_SERVER['HTTP_HOST'] === '127.0.0.
 	$hostname = '31.97.106.123';
 	$username = 'gl_prod';
 	$password = 'TUM8UHB3rsam@';
-	$database = 'u1721210_general_ledger';
+	$database = 'gl_testing';
 	$port = '3306';
 } else {
 	// Konfigurasi server 
 	$hostname = 'localhost';
 	$username = 'gl_prod';
 	$password = 'TUM8UHB3rsam@';
-	$database = 'u1721210_general_ledger';
+	$database = 'gl_testing';
 	$port = '3306';
 }
 
